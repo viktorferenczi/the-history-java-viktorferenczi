@@ -1,75 +1,60 @@
 package com.codecool.thehistory;
 
-import java.util.*;
+public interface TheHistory {
+    /**
+     * Adds the 'text' to the container of the implementing class which stores all the text
+     *
+     * @param text: a string containing words separated with spaces
+     */
+    void add(String text);
 
-public class TheHistory {
+    /**
+     * Remove all occurrences of a word from the stored text
+     *
+     * @param wordToBeRemoved: only one word. No spaces just the word otherwise it won't remove anything
+     */
+    void removeWord(String wordToBeRemoved);
 
-    private DataStructureType dataStructureType = DataStructureType.Array;
+    /**
+     * Returns the number of words in the stored text
+     *
+     * @return the number of words the stored text contains
+     */
+    int size();
 
-    private String[] wordsArray = new String[0];
-    private List<String> wordsArrayList = new ArrayList<>();
-    private List<String> wordsLinkedList = new LinkedList<>();
+    /**
+     * Empties the stored text
+     */
+    void clear();
 
-    public void add(String text) {
-        switch (dataStructureType) {
-            case Array:
-                int origLength = wordsArray.length;
-                String[] newArray = text.split("\\s+");
-                wordsArray = Arrays.copyOf(wordsArray, origLength + newArray.length);
-                System.arraycopy(newArray, 0, wordsArray, origLength, newArray.length);
-                break;
-            case ArrayList:
-                Collections.addAll(wordsArrayList, text.split("\\s+"));
-                break;
-            case LinkedList:
-                Collections.addAll(wordsLinkedList, text.split("\\s+"));
-                break;
-        }
-    }
+    /**
+     * Replaces all occurrences of a word to another word.
+     * NOTE: replace() method uses this method!
+     *
+     * @param from: all occurrences of this word will be replaced
+     * @param to:   all occurrences of 'from' will be replaced with this word
+     */
+    void replaceOneWord(String from, String to);
 
-    public void removeWord(String wordToBeRemoved) {
-        switch (dataStructureType) {
-            case Array:
-                // TODO - use wordsArray
-                break;
-            case ArrayList:
-                // TODO - use wordsArrayList
-                break;
-            case LinkedList:
-                // TODO - use wordsLinkedList
-                break;
-        }
-    }
+    /**
+     * Replaces all occurrences of a sentence or part of a sentence with another (part of a) sentence.
+     * The order of words are important. Also the 'fromWords' and 'toWords' arrays are not necessarily same sized.
+     * NOTE: replace() method uses this method!
+     *
+     * @param fromWords: array of words what should be replaced
+     * @param toWords:   array of words which should replace the words of 'fromWords'
+     */
+    void replaceMoreWords(String[] fromWords, String[] toWords);
 
-    private void replaceOneWord(String from, String to) {
-        switch (dataStructureType) {
-            case Array:
-                // TODO - use wordsArray
-                break;
-            case ArrayList:
-                // TODO - use wordsArrayList
-                break;
-            case LinkedList:
-                // TODO - use wordsLinkedList
-                break;
-        }
-    }
-
-    private void replaceMoreWords(String[] fromWords, String[] toWords) {
-        switch (dataStructureType) {
-            case Array:
-                // TODO - use wordsArray
-                break;
-            case ArrayList:
-                // TODO - use wordsArrayList
-                break;
-            case LinkedList:
-                // TODO - use wordsLinkedList
-                break;
-        }
-    }
-
-    public void replace(String from, String to) {
+    /**
+     * DON'T rewrite this method!
+     * replaces all occurrences of sentences or words with sentences or words.
+     * The tests are using this method instead of replaceOneWord() or replaceMoreWords().
+     *
+     * @param from: the sentence or word what needs to be replaced
+     * @param to:   the sentence or word which replaces the sentence found in 'from'
+     */
+    default void replace(String from, String to) {
         String[] fromWords = from.split("\\s+");
         String[] toWords = to.split("\\s+");
         if (fromWords.length == 1 && toWords.length == 1) {
@@ -78,62 +63,4 @@ public class TheHistory {
             replaceMoreWords(fromWords, toWords);
         }
     }
-
-    public int size() {
-        int size = 0;
-        switch (dataStructureType) {
-            case Array:
-                size = wordsArray.length;
-                break;
-            case ArrayList:
-                size = wordsArrayList.size();
-                break;
-            case LinkedList:
-                size = wordsLinkedList.size();
-                break;
-        }
-        return size;
-    }
-
-    public void clear() {
-        switch (dataStructureType) {
-            case Array:
-                wordsArray = new String[0];
-                break;
-            case ArrayList:
-                wordsArrayList.clear();
-                break;
-            case LinkedList:
-                wordsLinkedList.clear();
-                break;
-        }
-    }
-
-    public void setDataStructureType(DataStructureType dataStructureType) {
-        this.dataStructureType = dataStructureType;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        switch (dataStructureType) {
-            case Array:
-                for (String word : wordsArray) {
-                    sb.append(word).append(" ");
-                }
-                break;
-            case ArrayList:
-                for (String word : wordsArrayList) {
-                    sb.append(word).append(" ");
-                }
-                break;
-            case LinkedList:
-                for (String word : wordsLinkedList) {
-                    sb.append(word).append(" ");
-                }
-                break;
-        }
-        return sb.toString();
-    }
-
 }
