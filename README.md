@@ -37,6 +37,7 @@ perform the tasks when you are ready.
 
 
 ###Tips
+
 - You don't need iterators for Arrays but check for the System.arraycopy() and
 the Arrays package for helper functions. As you know you can't resize this type
 of array so when you are adding an element you should create an other array
