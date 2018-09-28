@@ -1,15 +1,33 @@
 package com.codecool.thehistory;
 
+/*
+ *
+ * START THE ASSIGNMENT BY READING/UNDERSTANDING THIS FILE!
+ *
+ *
+ * If we want to implement functionalities which share common features with different implementations we can use
+ * an interface.
+ * An interface is a Java type. It is like a specialized class: mostly with instance method declarations, without
+ * implementation (in Java 8 default methods has implementation /check out replace()/ and there are changes in
+ * newer Java versions as well).
+ * If a concrete (not abstract) class implements an interface it should implement all it's methods.
+ *
+ * Why is it good? Because if a class implements an interface we can use polymorphism to access the class' instance
+ * through any of the interface it implements. That's what we are using in the TestTheHistory.java to avoid duplicate
+ * test case implementations.
+ */
+
 public interface TheHistory {
     /**
-     * Adds the 'text' to the container of the implementing class which stores all the text
+     * Splits the incoming text to words and adds the words to the container of the
+     * implementing class
      *
      * @param text: a string containing words separated with spaces
      */
     void add(String text);
 
     /**
-     * Remove all occurrences of a word from the stored text
+     * Removes all occurrences of a word from the stored data
      *
      * @param wordToBeRemoved: only one word. No spaces just the word otherwise it won't remove anything
      */
