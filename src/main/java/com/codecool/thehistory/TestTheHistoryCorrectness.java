@@ -8,8 +8,6 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static org.junit.Assert.assertEquals;
 
@@ -60,7 +58,7 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
-    public void replaceOneWord_simple() {
+    public void replaceOneWord__simple() {
         theHistory.add("abc def ghi abc def ghi");
         theHistory.replace("abc", "ABC");
         theHistory.replace("def", "DEF");
@@ -68,63 +66,63 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
-    public void replaceOneWord_partOfWordOnly() {
+    public void replaceOneWord__partOfWordOnly() {
         theHistory.add("carpet car motorcar Nicaragua");
         theHistory.replace("car", "AUTOMOBILE");
         assertEquals("carpet AUTOMOBILE motorcar Nicaragua", theHistory.toString());
     }
 
     @Test
-    public void removeWord_found() {
+    public void removeWord__found() {
         theHistory.add("hello world hello hello world");
         theHistory.removeWord("hello");
         assertEquals("world world", theHistory.toString());
     }
 
     @Test
-    public void removeWord_notFound() {
+    public void removeWord__notFound() {
         theHistory.add("hello world hello hello world");
         theHistory.removeWord("x");
         assertEquals("hello world hello hello world", theHistory.toString());
     }
 
     @Test
-    public void replaceMoreWords_simple() {
+    public void replaceMoreWords__equal() {
         theHistory.add("replace me replace me me replace me");
         theHistory.replace("replace me", "HAPPY FUN");
         assertEquals("HAPPY FUN HAPPY FUN me HAPPY FUN", theHistory.toString());
     }
 
     @Test
-    public void replaceMoreWords_longerReplacement() {
+    public void replaceMoreWords__insert() {
         theHistory.add("x y z x y z w");
         theHistory.replace("x y", "X X Y Y");
         assertEquals("X X Y Y z X X Y Y z w", theHistory.toString());
     }
 
     @Test
-    public void replaceMoreWords_shorterReplacement() {
+    public void replaceMoreWords__delete() {
         theHistory.add("x y z x y z w");
         theHistory.replace("x y", "XY");
         assertEquals("XY z XY z w", theHistory.toString());
     }
 
     @Test
-    public void replaceMoreWords_notFound() {
+    public void replaceMoreWords__notFound() {
         theHistory.add("replace me replace me me replace me");
         theHistory.replace("replace replace me", "HAPPY FUN");
         assertEquals("replace me replace me me replace me", theHistory.toString());
     }
 
     @Test
-    public void replaceMoreWords_multipleRuns() {
+    public void replaceMoreWords__multipleRuns() {
         theHistory.add("x x x y x x x x y x x");
         theHistory.replace("x x", "XX");
         assertEquals("XX x y XX XX y XX", theHistory.toString());
     }
 
     @Test
-    public void replaceMoreWords_everything() {
+    public void replaceMoreWords__everything() {
         String text = "this is the text that I would like to be replaced";
         theHistory.add(text);
         theHistory.replace(text, "everything");
@@ -132,7 +130,7 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
-    public void replaceMoreWords_partOfWordOnly() {
+    public void replaceMoreWords__partOfWordOnly() {
         theHistory.add("foo bar baz");
 
         theHistory.replace("o b", "X");
