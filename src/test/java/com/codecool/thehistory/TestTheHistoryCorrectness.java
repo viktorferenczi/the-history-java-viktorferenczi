@@ -130,6 +130,13 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
+    public void replaceMoreWords__endOfString() {
+        theHistory.add("end of string end of");
+        theHistory.replace("end of string", "END OF STRING");
+        assertEquals("END OF STRING end of", theHistory.toString());
+    }
+
+    @Test
     public void replaceMoreWords__partOfWordOnly() {
         theHistory.add("foo bar baz");
 
