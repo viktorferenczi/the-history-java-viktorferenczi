@@ -25,15 +25,16 @@ research project to check the difference between String[], ArrayList<String>,
 and LinkedList<String>. Help them to implement all the necessary methods
 with the best possible performance!
 
-1) So your main task is to fill the //TODO sections. removeWord() is the
-easiest, replaceMoreWords() is much more tricky. Try your best to implement
-everything but you should leave the replaceMoreWords() last because that will
-devour most of your time.
+1. So your main task is to fill the //TODO sections. removeWord() is the
+   easiest, replaceMoreWords() is much more tricky. Try your best to implement
+   everything but you should leave the replaceMoreWords() last because that will
+   devour most of your time.
 
-2) To get better performance, you should look up iterator and ListIterator
-where it is needed (see the Tips section)!
-Every test (correctness and performance) should pass! Also check the times needed to
-perform the tasks when you are ready.
+2. You should aim for passing all correctness tests, but you **don't** have to
+   pass all performance tests. You are encouraged to try, though!
+
+   To get better performance, you should look up iterator and ListIterator
+   where it is needed (see the Tips section).
 
 
 ### Tips
@@ -94,5 +95,5 @@ There are two test classes. Each test in these classes is being run in 3 variant
    data sets. Each test has a 5-second timeout. If a test fails due to timeout,
    that probably means a given operation could be implemented in a better way.
 
-   To improve performance, make sure you understand how `ArrayList` and
-   `LinkedList` classes work, and what are the differences between them!
+   Note that it is **not required** to pass all performance tests, but you are
+   encouraged to try. See the Tips section above.
