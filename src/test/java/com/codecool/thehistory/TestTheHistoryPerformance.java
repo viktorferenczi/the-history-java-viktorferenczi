@@ -97,16 +97,19 @@ public class TestTheHistoryPerformance {
 
     @Test(timeout = 5000)
     public void removeInIliad() throws IOException {
-        theHistory.add(repeat(readIliad(), 10));
+        int n = 10;
+        theHistory.add(repeat(readIliad(), n));
         theHistory.removeWord("king");
         theHistory.removeWord("Zeus");
         theHistory.removeWord("Apollo");
         theHistory.removeWord("it");
+        assertEquals(140995 * n, theHistory.size());
     }
 
     @Test(timeout = 5000)
     public void replaceOneWordInIliad() throws IOException {
-        theHistory.add(repeat(readIliad(), 10));
+        int n = 10;
+        theHistory.add(repeat(readIliad(), n));
         theHistory.replace("Achilles", "Il");
         theHistory.replace("Agamemnon", "Il");
         theHistory.replace("Priam", "Trumm");
@@ -114,5 +117,6 @@ public class TestTheHistoryPerformance {
         theHistory.replace("bow", "missile");
         theHistory.replace("arrow", "nuke");
         theHistory.replace("the", "the");
+        assertEquals(141887 * n, theHistory.size());
     }
 }

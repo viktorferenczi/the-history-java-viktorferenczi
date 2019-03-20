@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 @RunWith(Parameterized.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -53,6 +54,8 @@ public class TestTheHistoryCorrectness {
     @Test
     public void clear() {
         theHistory.add("abc def ghi");
+        assertNotEquals("", theHistory.toString());
+
         theHistory.clear();
         assertEquals("", theHistory.toString());
     }
