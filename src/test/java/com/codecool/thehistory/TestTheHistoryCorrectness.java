@@ -140,6 +140,13 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
+    public void replaceMoreWords__extendPart() {
+        theHistory.add("Il Pet Il Pet");
+        theHistory.replace("Il", "Pet Il");
+        assertEquals("Pet Il Pet Pet Il Pet", theHistory.toString());
+    }
+
+    @Test
     public void replaceMoreWords__partOfWordOnly() {
         theHistory.add("foo bar baz");
 
