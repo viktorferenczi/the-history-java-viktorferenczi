@@ -58,8 +58,10 @@ search for the implementation details of ArrayList).
 examine it! It's an easy example of an interface, maybe a bit too basic but
 also easier to understand than most interfaces which can be found in the wild.
 
+### Opening the project and running the tests
 
-### Running the tests
+This is a Maven project, you should open the `pom.xml` file in IntelliJ. See
+[How to open a Maven project in Idea](https://learn.code.cool/bud-oop-java/#/../pages/tools/how-to-open-a-maven-project-in-idea)
 
 You should be able to run tests in IntelliJ by right-clicking the test folder
 (`src/test/java/`) and selecting "Run All Tests":
