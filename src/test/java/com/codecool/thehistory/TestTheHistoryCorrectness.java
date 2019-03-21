@@ -37,12 +37,27 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
-    public void add() {
+    public void add__simple() {
         theHistory.add("abc def ghi");
         assertEquals("abc def ghi", theHistory.toString());
         theHistory.add("x y z w");
         assertEquals("abc def ghi x y z w", theHistory.toString());
     }
+
+    @Test
+    public void add__multipleSpaces() {
+        theHistory.add("multiple    spaces");
+        assertEquals("multiple spaces", theHistory.toString());
+        assertEquals(2, theHistory.size());
+    }
+
+    @Test
+    public void add__otherWhitespace() {
+        theHistory.add("newlines\nand tabs\ttoo");
+        assertEquals("newlines and tabs too", theHistory.toString());
+        assertEquals(4, theHistory.size());
+    }
+
 
     @Test
     public void size() {
