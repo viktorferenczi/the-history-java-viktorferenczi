@@ -1,9 +1,6 @@
 package com.codecool.thehistory;
 
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.junit.runners.Parameterized;
@@ -52,7 +49,9 @@ public class TestTheHistoryPerformance {
 
     String readIliad() throws IOException {
         Path iliadPath = FileSystems.getDefault().getPath("src/main/resources/Iliad.txt");
-        return new String(Files.readAllBytes(iliadPath));
+        String text = new String(Files.readAllBytes(iliadPath));
+        // Strip everything except for letters
+        return text.replaceAll("[^a-zA-Z \n]", "");
     }
 
     @Test(timeout = 5000)
@@ -103,7 +102,7 @@ public class TestTheHistoryPerformance {
         theHistory.removeWord("Zeus");
         theHistory.removeWord("Apollo");
         theHistory.removeWord("it");
-        assertEquals(140995 * n, theHistory.size());
+        assertEquals(151969 * n, theHistory.size());
     }
 
     @Test(timeout = 5000)
@@ -117,6 +116,6 @@ public class TestTheHistoryPerformance {
         theHistory.replace("bow", "missile");
         theHistory.replace("arrow", "nuke");
         theHistory.replace("the", "the");
-        assertEquals(141887 * n, theHistory.size());
+        assertEquals(153268 * n, theHistory.size());
     }
 }
