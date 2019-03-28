@@ -126,6 +126,13 @@ public class TestTheHistoryCorrectness {
     }
 
     @Test
+    public void replaceMoreWords__replace_not_first() {
+        theHistory.add("c a x y z x y z w");
+        theHistory.replace("x y", "XY");
+        assertEquals("c a XY z XY z w", theHistory.toString());
+    }
+
+    @Test
     public void replaceMoreWords__notFound() {
         theHistory.add("replace me replace me me replace me");
         theHistory.replace("replace replace me", "HAPPY FUN");
