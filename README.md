@@ -1,3 +1,10 @@
+# The History
+
+**NOTE**: This is a Maven project with JUnit tests. For details, see the
+"Opening the project and running the tests" section below.
+
+## The assignment
+
 Petunia is a decent little country with a strong and wise leader.
 He sets wise laws in order to keep the country safe, stable, and prosperous.
 For example it is forbidden to use the word 'dictator' since it induces
@@ -37,7 +44,7 @@ with the best possible performance!
    where it is needed (see the Tips section).
 
 
-### Tips
+## Tips
 
 - You don't need iterators for Arrays but check for the System.arraycopy() and
 the Arrays package for helper functions. As you know you can't resize this type
@@ -59,7 +66,7 @@ search for the implementation details of ArrayList).
 examine it! It's an easy example of an interface, maybe a bit too basic but
 also easier to understand than most interfaces which can be found in the wild.
 
-### Opening the project and running the tests
+## Opening the project and running the tests
 
 This is a Maven project, you should open the `pom.xml` file in IntelliJ. See
 [How to open a Maven project in Idea](https://learn.code.cool/bud-oop-java/#/../pages/tools/how-to-open-a-maven-project-in-idea)
@@ -83,7 +90,7 @@ If you run into problems with IntelliJ configuration, check out
  the output will not be very readable.
 
 
-### More about the tests
+## More about the tests
 
 There are two test classes. Each test in these classes is being run in 3 variants:
 `[Array]`, `[ArrayList]`, and `[LinkedList]`.
